@@ -64,9 +64,9 @@ end
 local function quit()
   if openedSide then
     rednet.close(openedSide)
-    shell.run("Rogue/Menu")
+    shell.run("Rogue/GamesApps")
   end
-  shell.run("Rogue/Menu")
+  shell.run("Rogue/GamesApps")
 end
 
 local foundModem=false
@@ -449,6 +449,7 @@ local function randomizeShips()
   end
 end    
   
+-- GameStation Rogue Exclusive coming soon...
 
 
 local function shipPlacement()
@@ -661,7 +662,7 @@ local function runGame()
   drawShipsToGrid(ships,myGrid)
 
 
-  --if I'm host, flip a coin
+  --if I'm host, flip a coin - lel
   if action=="host" then
     math.randomseed(os.time())
     myTurn=math.floor(100*math.random())%2==0
@@ -682,14 +683,14 @@ local function runGame()
 
   setStatusLine(1,"")
   if myTurn then
-    --I won, I go first
+    --I won, I go first!
     displayGameHelp()
   end
   
   --draw a target grid  
   drawGrid(2,2,myGrid)
   drawGrid(15,2,oppGrid)
-  --initialize target indicators
+  --Initialize target indicators
   moveTargetIndicator(5,5)
   --game turn loop
   while true do
