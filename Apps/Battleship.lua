@@ -5,6 +5,8 @@ by GopherAtl, 2013
 
 Do whatever you want, just don't judge me by 
 what a mess this code is.
+
+GameStation Rogue Port by Mr_Iron2
 --]]
 local args={...}
 local action=args[1]
@@ -62,11 +64,9 @@ end
 local function quit()
   if openedSide then
     rednet.close(openedSide)
+    shell.run("Rogue/Menu")
   end
-  term.redirect( originalTerm )
-  term.setCursorPos(term.getSize())
-  print()
-  error()
+  shell.run("Rogue/Menu")
 end
 
 local foundModem=false
